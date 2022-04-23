@@ -4,8 +4,8 @@ from auxilio_emerg_spark import tratamento_csv
 
 def main():
     path_download = 'C:\\Users\\antoliverjr\\Downloads'
-    path_historico = 'C:\\Workspace\\DataAnalystics\\Aux_Emergencial\\historico_zip'
-    path_files = 'C:\\Workspace\\DataAnalystics\\Aux_Emergencial\\csv_aux_emergencial'
+    path_historico = 'C:\\Workspace\\DataAnalytics\\Auxilio_Emergencial\\historico_zip'
+    path_files = 'C:\\Workspace\\DataAnalytics\\Auxilio_Emergencial\\csv_aux_emergencial'
 
     try:
         path_file_name = extract_csv('202004', path_download, path_historico, path_files)

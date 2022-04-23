@@ -69,4 +69,8 @@ def extract_csv(ano_mes:str, path_download:str, path_historico:str, path_files:s
     return os.path.join(path_files, csv_name_file)
 
 if __name__ == '__main__':
-    print(extract_csv('202104'))
+    print(extract_csv('202103'
+                    ,'C:\\Users\\antoliverjr\\Downloads'
+                    ,'C:\\Workspace\\DataAnalytics\\Auxilio_Emergencial\\historico_zip'
+                    ,'C:\\Workspace\\DataAnalytics\\Auxilio_Emergencial\\csv_aux_emergencial'
+    ))
