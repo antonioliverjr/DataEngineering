@@ -258,6 +258,6 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-# End of https://www.toptal.com/developers/gitignore/api/jupyternotebooks,pycharm,python
-design-patterns-python/
-design-patterns-python/*
+# Pastas do JOB
+csv_aux_emergencial/
+historico_zip/
