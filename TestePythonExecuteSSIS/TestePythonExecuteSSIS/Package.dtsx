@@ -1,0 +1,797 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/2/2022 6:32:47 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DELLJR"
+  DTS:CreatorName="DELLJR\antoliverjr"
+  DTS:DTSID="{FFF3F72B-1798-4F82-BDA1-EC0268573498}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{0CD382E7-1A19-44F7-AC96-D5B834DC8564}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DELLJR\SQLEXPRESS.PANDAS.project]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FB5C1488-5787-437B-BB39-4381154CE2F2}"
+      DTS:ObjectName="DELLJR\SQLEXPRESS.PANDAS.project">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DELLJR\SQLEXPRESS;User ID=project;Initial Catalog=PANDAS;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKZ9TtZo1LkuSBKbZCIUi8gAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADVONeVzFNc7reo1VGy5OT8DbmWzyaSXQFjtldw8C4OdwAAAAAOgAAAAAIAACAAAADpC0iwUCZ4NkHnFHpYGVUOBzCs+e4KsOk3nwEk2STEaBAAAABpDIrDLROyXbWVHfn7/n+SQAAAADS0yq8PUizN+CNZcG8ROF4PP3uHuFf9xg34fbVZGUYFU/GJ2HQCQMyBP8FOl+UzqyvMZhHRfvvNjHtksGnwZG8</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MUNICIPIO_2020_CSV]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{F65333B7-45BD-401C-B726-7A0A156A663D}"
+      DTS:ObjectName="MUNICIPIO_2020_CSV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\municipio\municipio_2020.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 0"
+              DTS:DTSID="{B1A8B79B-35C7-48A6-B874-02BD5E7F0ECD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ano"
+              DTS:DTSID="{2351FD0E-1C17-429F-B601-508DC6330F2C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="id_municipio"
+              DTS:DTSID="{60D78A7D-49F3-4B9B-B751-3326E063F7D9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sexo"
+              DTS:DTSID="{E0ADA3D0-E617-4C9B-9F30-177F08A2F307}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="grupo_idade"
+              DTS:DTSID="{E0D9F11A-6BD3-4B40-B531-216DE3909BC9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="populacao"
+              DTS:DTSID="{074CFFF4-1067-4461-A3DE-8F5528516A8C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FILTER_BASE_PYTHON"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{DC3E5EA9-7FC9-46F9-B558-555CDD391999}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FILTER_BASE_PYTHON"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="C:\ProgramData\Anaconda3\python.exe"
+          Arguments="C:\Workspace\Python_Dev\DataAnalystics\csv_read.py" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\INSERT_TB_STG"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C4D20A34-1152-422F-8883-FAD6A7966C82}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="INSERT_TB_STG"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="MUNICIPIO_2020_CSV"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[MUNICIPIO_2020_CSV]"
+                  connectionManagerRefId="Package.ConnectionManagers[MUNICIPIO_2020_CSV]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].Columns[ano]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].ExternalColumns[ano]"
+                      length="50"
+                      lineageId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].Columns[ano]"
+                      name="ano"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].Columns[id_municipio]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].ExternalColumns[id_municipio]"
+                      length="50"
+                      lineageId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].Columns[id_municipio]"
+                      name="id_municipio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].Columns[sexo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].ExternalColumns[sexo]"
+                      length="50"
+                      lineageId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].Columns[sexo]"
+                      name="sexo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].Columns[grupo_idade]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].ExternalColumns[grupo_idade]"
+                      length="50"
+                      lineageId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].Columns[grupo_idade]"
+                      name="grupo_idade"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].Columns[populacao]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].ExternalColumns[populacao]"
+                      length="50"
+                      lineageId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].Columns[populacao]"
+                      name="populacao"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].ExternalColumns[Column 0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 0" />
+                    <externalMetadataColumn
+                      refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].ExternalColumns[ano]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ano" />
+                    <externalMetadataColumn
+                      refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].ExternalColumns[id_municipio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id_municipio" />
+                    <externalMetadataColumn
+                      refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].ExternalColumns[sexo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="sexo" />
+                    <externalMetadataColumn
+                      refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].ExternalColumns[grupo_idade]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="grupo_idade" />
+                    <externalMetadataColumn
+                      refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].ExternalColumns[populacao]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="populacao" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\INSERT_TB_STG\STG_MUNICIPIOS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="STG_MUNICIPIOS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stg_municipios]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DELLJR\SQLEXPRESS.PANDAS.project]"
+                  connectionManagerRefId="Package.ConnectionManagers[DELLJR\SQLEXPRESS.PANDAS.project]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input].Columns[ano]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ano"
+                      externalMetadataColumnId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input].ExternalColumns[ano]"
+                      lineageId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].Columns[ano]" />
+                    <inputColumn
+                      refId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input].Columns[id_municipio]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="id_municipio"
+                      externalMetadataColumnId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input].ExternalColumns[id_municipio]"
+                      lineageId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].Columns[id_municipio]" />
+                    <inputColumn
+                      refId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input].Columns[sexo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="sexo"
+                      externalMetadataColumnId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
+                      lineageId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].Columns[sexo]" />
+                    <inputColumn
+                      refId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input].Columns[grupo_idade]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="grupo_idade"
+                      externalMetadataColumnId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input].ExternalColumns[grupo_idade]"
+                      lineageId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].Columns[grupo_idade]" />
+                    <inputColumn
+                      refId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input].Columns[populacao]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="populacao"
+                      externalMetadataColumnId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input].ExternalColumns[populacao]"
+                      lineageId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output].Columns[populacao]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input].ExternalColumns[ano]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ano" />
+                    <externalMetadataColumn
+                      refId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input].ExternalColumns[id_municipio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id_municipio" />
+                    <externalMetadataColumn
+                      refId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="sexo" />
+                    <externalMetadataColumn
+                      refId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input].ExternalColumns[grupo_idade]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="grupo_idade" />
+                    <externalMetadataColumn
+                      refId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input].ExternalColumns[populacao]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="populacao" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\INSERT_TB_STG.Paths[Flat File Source Output]"
+              endId="Package\INSERT_TB_STG\STG_MUNICIPIOS.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PRC_INSERT_MUNICIPIOS"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E82BB05D-36B7-4CFA-B031-849961CCF180}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PRC_INSERT_MUNICIPIOS"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FB5C1488-5787-437B-BB39-4381154CE2F2}"
+          SQLTask:SqlStatementSource="EXEC PRC_MUNICIPIOS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRUNCATE_STG"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{13409A21-75AF-4063-A507-1E3049BFFFB2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE_STG"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FB5C1488-5787-437B-BB39-4381154CE2F2}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [DBO].[STG_MUNICIPIOS]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C2881181-4B9F-4387-B310-F274EB9B9BAA}"
+      DTS:From="Package\TRUNCATE_STG"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\INSERT_TB_STG" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{ABF151C9-994B-47F7-A1DF-DF804CFFC54B}"
+      DTS:From="Package\FILTER_BASE_PYTHON"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\TRUNCATE_STG" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{4C817602-E662-42FC-AC94-BC754E4BAA61}"
+      DTS:From="Package\INSERT_TB_STG"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\PRC_INSERT_MUNICIPIOS" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\TRUNCATE_STG"
+          TopLeft="199,118" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\INSERT_TB_STG"
+          TopLeft="313.5,205.5" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\FILTER_BASE_PYTHON"
+          TopLeft="55,32" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="283,160">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114.5,45.5"
+              Start="0,0"
+              End="114.5,38">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.75"
+                    Point2="0,22.75"
+                    Point3="4,22.75" />
+                  <mssgle:LineSegment
+                    End="110.5,22.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="110.5,22.75"
+                    Point2="114.5,22.75"
+                    Point3="114.5,26.75" />
+                  <mssgle:LineSegment
+                    End="114.5,38" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="158,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="126,44"
+              Start="0,0"
+              End="126,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="4,22" />
+                  <mssgle:LineSegment
+                    End="122,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="122,22"
+                    Point2="126,22"
+                    Point3="126,26" />
+                  <mssgle:LineSegment
+                    End="126,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="220,42"
+          Id="Package\PRC_INSERT_MUNICIPIOS"
+          TopLeft="402,299" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="397.5,247.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114.5,51.5"
+              Start="0,0"
+              End="114.5,44">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.75"
+                    Point2="0,25.75"
+                    Point3="4,25.75" />
+                  <mssgle:LineSegment
+                    End="110.5,25.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="110.5,25.75"
+                    Point2="114.5,25.75"
+                    Point3="114.5,29.75" />
+                  <mssgle:LineSegment
+                    End="114.5,44" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\INSERT_TB_STG">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196,42"
+          Id="Package\INSERT_TB_STG\MUNICIPIO_2020_CSV"
+          TopLeft="90,43" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\INSERT_TB_STG\STG_MUNICIPIOS"
+          TopLeft="228,142" />
+        <EdgeLayout
+          Id="Package\INSERT_TB_STG.Paths[Flat File Source Output]"
+          TopLeft="188,85">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="126.5,57"
+              Start="0,0"
+              End="126.5,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="4,28.5" />
+                  <mssgle:LineSegment
+                    End="122.5,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="122.5,28.5"
+                    Point2="126.5,28.5"
+                    Point3="126.5,32.5" />
+                  <mssgle:LineSegment
+                    End="126.5,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\INSERT_TB_STG\STG_MUNICIPIOS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

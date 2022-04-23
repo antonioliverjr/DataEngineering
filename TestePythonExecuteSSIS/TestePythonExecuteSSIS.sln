@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31727.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "TestePythonExecuteSSIS", "TestePythonExecuteSSIS\TestePythonExecuteSSIS.dtproj", "{27F0DD7A-D1CD-4716-BE9A-307EA07C744B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27F0DD7A-D1CD-4716-BE9A-307EA07C744B}.Development|Default.ActiveCfg = Development
+		{27F0DD7A-D1CD-4716-BE9A-307EA07C744B}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E66D83D-53BA-45A8-98B3-76F7FBCB4A43}
+	EndGlobalSection
+EndGlobal
