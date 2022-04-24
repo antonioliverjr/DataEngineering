@@ -8,13 +8,13 @@ def main():
     path_files = 'C:\\Workspace\\DataAnalytics\\Auxilio_Emergencial\\csv_aux_emergencial'
 
     try:
-        path_file_name = extract_csv('202004', path_download, path_historico, path_files)
+        path_file_name = extract_csv('202104', path_download, path_historico, path_files)
         print('Zip Extraído com sucesso')
     except Exception as error:
         print(error)
 
-    if os.path.exists(path_file_name, path_files):
-        if tratamento_csv(path_file_name):
+    if os.path.exists(path_file_name):
+        if tratamento_csv(path_file_name, path_files):
             print('Sucesso no processamento')
         else:
             print('Erro processamento CSV')

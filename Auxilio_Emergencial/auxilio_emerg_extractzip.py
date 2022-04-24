@@ -64,6 +64,8 @@ def extract_csv(ano_mes:str, path_download:str, path_historico:str, path_files:s
     with ZipFile(path_file_job, 'r') as csv:
         for file in csv.namelist():
             csv_name_file = file
+        if os.path.exists(os.path.join(path_files, csv_name_file)):
+            return os.path.join(path_files, csv_name_file)        
         csv.extractall(path_files)
 
     return os.path.join(path_files, csv_name_file)
