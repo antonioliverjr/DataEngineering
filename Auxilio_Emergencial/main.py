@@ -1,14 +1,16 @@
 import os
-from auxilio_emerg_extractzip import extract_csv
-from auxilio_emerg_spark import tratamento_csv
+from extract_zip import extract_csv
+from transform_spark import tratamento_csv
+from loading_data import loading_csv
 
 def main():
-    path_download = 'C:\\Users\\antoliverjr\\Downloads'
-    path_historico = 'C:\\Workspace\\DataAnalytics\\Auxilio_Emergencial\\historico_zip'
-    path_files = 'C:\\Workspace\\DataAnalytics\\Auxilio_Emergencial\\csv_aux_emergencial'
-
+    path_caminho = os.path.dirname(os.path.realpath(__file__))
+    path_download = os.path.join(path_caminho,'Downloads')
+    path_historico = os.path.join(path_caminho,'historico_zip')
+    path_files = os.path.join(path_caminho,'csv_aux_emergencial')
+    
     try:
-        path_file_name = extract_csv('202104', path_download, path_historico, path_files)
+        path_file_name = extract_csv('202103', path_download, path_historico, path_files)
         print('Zip Extraído com sucesso')
     except Exception as error:
         print(error)
@@ -21,5 +23,10 @@ def main():
     else:
         print('Erro processamento CSV')
 
+    pasta_load = os.listdir(path_files)
+    if len(pasta_load) > 0:
+        ano_mes = pasta_load[0]
+    
+    #loading_csv(os.path.join(path_files, ano_mes))
 if __name__ == '__main__':
     main()

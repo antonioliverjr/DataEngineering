@@ -33,37 +33,37 @@ def tratamento_csv(path_file :str, destino:str):
 
     df_final = df2.filter("COD_MUNICIPIO IS NOT NULL")\
                 .groupBy(['ANO_MES','COD_MUNICIPIO','ENQUADRAMENTO','PARCELA'])\
-                .sum('VALOR')\
+                .sum('VALOR').withColumnRenamed('sum(VALOR)', 'TOTAL_PAGO')\
                 .orderBy(['COD_MUNICIPIO','ENQUADRAMENTO','PARCELA'])
 
     ano_mes = df_final.select('ANO_MES').limit(1).collect()
-    path_destino = destino+'\\'+ano_mes[0][0]
+    path_destino = os.path.join(destino,ano_mes[0][0])
 
     try: os.mkdir(path_destino)
     except FileExistsError: pass
 
-    file_csv = path_destino+'\\'+'AuxilioEmergencial.csv'
-    df_final.toPandas().to_csv(file_csv)
+    file_csv = os.path.join(path_destino,'AuxilioEmergencial.csv')
+    df_final.toPandas().to_csv(file_csv, index=False)
 
     municipios = df2.select('COD_MUNICIPIO', 'NOME_MUNICIPIO', 'UF')\
                             .distinct().filter("COD_MUNICIPIO IS NOT NULL")
 
     csv_municipio = path_destino+'\\'+'municipios.csv'
-    municipios.toPandas().to_csv(csv_municipio)
+    municipios.toPandas().to_csv(csv_municipio, index=False)
 
     total_beneficiados = df2.filter("COD_MUNICIPIO IS NOT NULL AND CPF_BENEF IS NOT NULL")\
                             .groupBy(['ANO_MES','COD_MUNICIPIO'])\
                             .agg(count('COD_MUNICIPIO').alias('TOTAL_BENEF'))
 
     csv_beneficiados = path_destino+'\\'+'beneficiados_registrados.csv'
-    total_beneficiados.toPandas().to_csv(csv_beneficiados)
+    total_beneficiados.toPandas().to_csv(csv_beneficiados, index=False)
 
     total_anonimos = df2.filter("COD_MUNICIPIO IS NOT NULL AND CPF_BENEF IS NULL")\
                             .groupBy(['ANO_MES','COD_MUNICIPIO'])\
                             .agg(count('COD_MUNICIPIO').alias('TOTAL_ANONIMOS'))
 
     csv_anonimos = path_destino+'\\'+'beneficiados_anonimos.csv'
-    total_anonimos.toPandas().to_csv(csv_anonimos)
+    total_anonimos.toPandas().to_csv(csv_anonimos, index=False)
 
     if os.path.exists(file_csv) and os.path.exists(csv_municipio)\
         and os.path.exists(csv_beneficiados) and os.path.exists(csv_anonimos):
