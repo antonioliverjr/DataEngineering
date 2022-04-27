@@ -1,4 +1,3 @@
-from genericpath import exists
 import os
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import regexp_replace, col, count

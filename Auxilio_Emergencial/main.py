@@ -1,4 +1,6 @@
 import os
+import shutil
+from database import database_conn
 from extract_zip import extract_csv
 from transform_spark import tratamento_csv
 from loading_data import loading_csv
@@ -27,6 +29,12 @@ def main():
     if len(pasta_load) > 0:
         ano_mes = pasta_load[0]
     
-    #loading_csv(os.path.join(path_files, ano_mes))
+    path_execute = os.path.join(path_files, ano_mes)
+    if not loading_csv(path_execute):
+        print('Erro ao inserir dados no Database.')
+    
+    shutil.rmtree(path_execute)
+    print(f'Dados de {ano_mes} carregados na Stage com sucesso!')
 if __name__ == '__main__':
+    database_conn()
     main()
