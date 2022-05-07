@@ -1,7 +1,10 @@
 import os
 import pandas as pd
+import time
 from sqlalchemy.sql import text
-from database import conexao, engine, TB_BENEFICIOS, TB_REGISTRADOS, TB_ANONIMOS, TB_MUNICIPIOS
+from database import conexao, store_procedure, engine
+from database import TB_BENEFICIOS, TB_REGISTRADOS, TB_ANONIMOS, TB_MUNICIPIOS
+from list_procedures import list_procedures_flow
 from log import register_log
 
 def tabela_db(file_csv:str) -> str:
@@ -49,6 +52,26 @@ def loading_csv(path_files:str) -> bool:
     else:
         print('Falha no processo, quantidade de registros incompletos!')
         return False
+
+
+def flow_final():
+    for seq in list_procedures_flow:
+        procedure = list_procedures_flow[seq]
+        tabela = procedure.replace('PRC_CARGA_', '')
+        if 'TB_' in tabela: register_log(tabela,'start')
+        #procedure = text(f'DBO.{procedure}')
+        print(f'Executando {procedure}')
+        
+        try:
+            store_procedure(procedure)
+        except Exception as err:
+            if 'TB_' in tabela: register_log(tabela,'error')
+            print(f'Erro - {err}')
+            return err
+        
+        if 'TB_' in tabela: register_log(tabela,'end')
+        print(f'{procedure} executada com sucesso!')
+        time.sleep(3)
 
 if __name__ == '__main__':
     caminho = os.path.dirname(os.path.realpath(__file__))
