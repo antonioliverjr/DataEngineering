@@ -13,13 +13,39 @@
 
 # Anotações do projeto
 
+> Fontes de Dados para Analise
+- Dataset: https://www.portaldatransparencia.gov.br/download-de-dados/auxilio-emergencial
+- Dados Geométricos: https://dados.gov.br/dataset/malha-geometrica-dos-municipios-brasileiros
+
 > Bibliotecas Utilizadas
+- *Anaconda3 (Path)*
 - PySpark
+- Pandas
+- SQLAlchemy
+- GeoPandas
+
+Obs.: Caso queira utilizar interpretador python.org instalar Pandas e SQLAlchemy
+
+> Built-in
+- os
+- shutil
+- request
+- zipfile
 
 > Comandos Bash
-```bash
+```conda install -c conda-forge pyspark
+```
+```conda install -c conda-forge geopandas
 ```
 > Estrutura de Projeto
+- tabelas_database.sql (Script T-SQL Tabelas, Procedures e View "SQL Server")
 - main.py (Start)
+- extract_zip.py (Get dataset e extração para csv)
+- transform_spark.py (Extração do dataset para arquivos csv transformados conforme modelagem do DW)
+- loading_data.py (Carga dos arquivos csv para stage e execução das procedures de tratamento e carga para tabelas finais)
+- dados_geometricos.py (Captação de dados para geolocalização)
+- database.py (Engine, Schema e Criação das tabelas stages)
+- log.py (Execução de registros do processo de carga)
+- list_procedures.py (Arquivo com lista de sequência de procedures a executar)
 
 
