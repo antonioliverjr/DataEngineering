@@ -1,3 +1,4 @@
+import os
 from sqlalchemy import create_engine, Table, Column, String, Integer, Float, MetaData, DateTime
 
 TB_BENEFICIOS = 'TB_STG_AUXEMERGENCIAL_BENEFICIOS'
@@ -65,6 +66,16 @@ def tables_server():
 
 def conexao():
     return engine.connect()
+
+def store_procedure(procedure:str):
+    path_caminho = os.path.dirname(os.path.realpath(__file__))
+    path_cmd = path_caminho+'\Execucao_Procedures\Execucao_Procedures'
+    comando_cmd = f'dotnet run --project {path_cmd} {procedure}'
+    try:
+        os.system(comando_cmd)
+    except Exception as err:
+        return err
+    return True
 
 if __name__ == '__main__':
     engine = database_conn()
