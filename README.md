@@ -15,14 +15,13 @@
 
 > Fontes de Dados para Analise
 - Dataset: https://www.portaldatransparencia.gov.br/download-de-dados/auxilio-emergencial
-- Dados Geométricos: https://dados.gov.br/dataset/malha-geometrica-dos-municipios-brasileiros
+- Dados Geométricos: https://github.com/kelvins/Municipios-Brasileiros
 
 > Bibliotecas Utilizadas
 - *Anaconda3 (Path)*
 - PySpark
 - Pandas
 - SQLAlchemy
-- GeoPandas
 
 Obs.: Caso queira utilizar interpretador python.org instalar Pandas e SQLAlchemy
 

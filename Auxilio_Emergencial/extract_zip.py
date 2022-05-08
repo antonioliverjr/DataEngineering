@@ -2,6 +2,8 @@ import os
 import shutil
 import requests
 from zipfile import ZipFile
+from dados_geometricos import get_municipios_csv
+
 
 def extract_csv(ano_mes:str, path_download:str, path_historico:str, path_files:str) -> str:
     url_download = 'https://www.portaldatransparencia.gov.br/download-de-dados/auxilio-emergencial/'
@@ -71,6 +73,9 @@ def extract_csv(ano_mes:str, path_download:str, path_historico:str, path_files:s
             return os.path.join(path_files, csv_name_file)        
         csv.extractall(path_files)
 
+    get_municipios_csv(path_download, path_files)
+
+    shutil.rmtree(path_download)
     return os.path.join(path_files, csv_name_file)
 
 if __name__ == '__main__':
