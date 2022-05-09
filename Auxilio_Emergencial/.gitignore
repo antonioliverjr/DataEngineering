@@ -261,4 +261,4 @@ cython_debug/
 # Pastas do JOB
 csv_aux_emergencial/
 historico_zip/
-analises/
+_analises/
