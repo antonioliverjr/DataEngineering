@@ -11,7 +11,7 @@
 - **Tratamentos com Spark**
 - **Dataviz com WebApp**
 
-# Anotações do projeto
+# Anotações do projeto - Auxilio Emergencial GOVBR
 
 > Fontes de Dados para Analise
 - Dataset: https://www.portaldatransparencia.gov.br/download-de-dados/auxilio-emergencial
@@ -32,9 +32,11 @@ Obs.: Caso queira utilizar interpretador python.org instalar Pandas e SQLAlchemy
 - zipfile
 
 > Comandos Bash
-```conda install -c conda-forge pyspark
+```bash
+conda install -c conda-forge pyspark
 ```
-```conda install -c conda-forge geopandas
+```bash
+conda install -c conda-forge geopandas
 ```
 > Estrutura de Projeto
 - tabelas_database.sql (Script T-SQL Tabelas, Procedures e View "SQL Server")
