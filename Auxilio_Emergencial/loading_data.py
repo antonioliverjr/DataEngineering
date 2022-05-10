@@ -3,9 +3,18 @@ import pandas as pd
 import time
 from sqlalchemy.sql import text
 from database import conexao, store_procedure, engine
-from database import TB_BENEFICIOS, TB_REGISTRADOS, TB_ANONIMOS, TB_MUNICIPIOS
+from database import TB_BENEFICIOS, TB_REGISTRADOS, TB_ANONIMOS, TB_MUNICIPIOS, TB_DATA
 from list_procedures import list_procedures_flow
 from log import register_log
+
+def verifica_dt_set(ano:str, mes:str) -> bool:
+    sql_sel_dt = text("SELECT COUNT(*) AS DADOS FROM "+ TB_DATA +" WHERE NM_ANO = :year AND NM_MES = :month")
+    with conexao() as conn:
+        result = conn.execute(sql_sel_dt, {'year': ano,'month': mes}).fetchone()
+
+    if result > 0:
+        return True
+    return False
 
 def tabela_db(file_csv:str) -> str:
     if 'AuxilioEmergencial'in file_csv:
