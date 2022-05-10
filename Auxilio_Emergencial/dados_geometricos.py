@@ -1,4 +1,5 @@
 import os
+import time
 import shutil
 import requests
 from zipfile import ZipFile
@@ -24,6 +25,7 @@ def get_municipios_csv(path_download:str, path_destino:str) -> str:
     path_mun_csv = os.path.join(path_destino, 'base_municipios')
     zip_file = 'main.zip'
     file_name = 'municipios.csv'
+    file_name2 = 'estados.csv'
 
     try: os.mkdir(path_download)
     except FileExistsError: pass
@@ -43,18 +45,29 @@ def get_municipios_csv(path_download:str, path_destino:str) -> str:
                 for bites in zip.iter_content(chunk_size=8192):
                     file.write(bites)
     
-    caminho_arq_final = os.path.join(path_mun_csv,file_name)
+    caminho_arq_final1 = os.path.join(path_mun_csv,file_name)
+    caminho_arq_final2 = os.path.join(path_mun_csv,file_name2)
 
     if os.path.exists(local_file):
         with ZipFile(local_file, 'r') as zip:
             for pasta in zip.namelist():
                 if file_name in pasta:
                     pasta_csv = pasta
-            zip.extract(pasta_csv, path_download)
-        
-        shutil.copy(os.path.join(path_download,pasta_csv), caminho_arq_final)
+                    zip.extract(pasta_csv, path_download)
+                
+                if file_name2 in pasta:
+                    pasta_csv2 = pasta
+                    zip.extract(pasta_csv2, path_download)
+            
+        shutil.copy(os.path.join(path_download,pasta_csv), caminho_arq_final1)
+        shutil.copy(os.path.join(path_download,pasta_csv2), caminho_arq_final2)
 
-    register_path(file_name,str(caminho_arq_final))
+    if os.path.exists(caminho_arq_final1):
+        register_path(file_name,str(caminho_arq_final1))
+        time.sleep(10)
+    
+    if os.path.exists(caminho_arq_final2):
+        register_path(file_name2,str(caminho_arq_final2))
 
 if __name__ == '__main__':
     path_caminho = os.path.dirname(os.path.realpath(__file__))
