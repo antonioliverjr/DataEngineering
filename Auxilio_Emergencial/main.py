@@ -32,42 +32,55 @@ def inicio_job(ano_mes:str):
         return False
 
     try:
+        print("Iniciando captura e extração dos arquivos CSV...")
         path_file_name = extract_csv(ano_mes, path_download, path_historico, path_files)
-        print('Zip Extraído com sucesso')
+        print('Zip Extraído com sucesso, arquivo csv disponível!')
     except Exception as error:
         print(error)
 
     if os.path.exists(path_file_name):
+        print("Iniciando processo de tratamento do CSV...")
         if tratamento_csv(path_file_name, path_files):
-            print('Sucesso no processamento')
+            print('Processamento executado com sucesso!')
         else:
-            print('Erro processamento CSV')
+            print('Erro no processamento CSV!')
     else:
-        print('Erro processamento CSV')
+        print('Erro no processamento CSV!')
 
     pasta_load = os.listdir(path_files)
     if len(pasta_load) > 0:
         ano_mes = pasta_load[0]
     
     path_execute = os.path.join(path_files, ano_mes)
+    print("Inserindo dados do CSV no Database...")
     if not loading_csv(path_execute):
-        print('Erro ao inserir dados no Database.')
+        print('Erro ao inserir dados no Database!')
     
+    print("Limpando pastas...")
     shutil.rmtree(path_execute)
     print(f'Dados de {ano_mes} carregados na Stage com sucesso!')
 
+    print("Iniciando flow final...")
     flow_final()
+    print(f'Dados de {ano_mes} carregados nas tabelas principais!')
 
 
 def main():
+    print("Iniciando verificação de periodo da carga...")
     ano_ini = min([ano for ano in dataset_temp.keys()])
-    while ano_ini <= max([ano for ano in dataset_temp.keys()]):
+    contagem = 0
+    while int(ano_ini) <= int(max([ano for ano in dataset_temp.keys()])):
         for mes in dataset_temp[ano_ini]:
             if verifica_dt_set(ano_ini, mes):
+                print(f"Carga {ano_ini}{mes} já efetuado!")
                 continue
+            print(f"Iniciando carga de {ano_ini}{mes}...")
             inicio_job(f'{ano_ini}{mes}')
-            time.sleep(300)
-        ano_ini += 1
+            contagem += 1
+            #time.sleep(300)
+            break
+        if contagem == 1: break
+        ano_ini = str(int(ano_ini)+1)
 
 if __name__ == '__main__':
     database_conn()

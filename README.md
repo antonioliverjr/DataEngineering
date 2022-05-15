@@ -17,6 +17,12 @@
 - Dataset: https://www.portaldatransparencia.gov.br/download-de-dados/auxilio-emergencial
 - Dados Geométricos: https://github.com/kelvins/Municipios-Brasileiros
 
+> Ferramentas utilizadas
+- SQL Server Express 2019
+- Power BI Desktop
+- Editor de Texto (VSCode) - Python
+- Visual Studio 2019 - C#
+
 > Bibliotecas Utilizadas
 - *Anaconda3 (Path)*
 - PySpark
@@ -31,13 +37,11 @@ Obs.: Caso queira utilizar interpretador python.org instalar Pandas e SQLAlchemy
 - request
 - zipfile
 
-> Comandos Bash
+> Comandos Terminal
 ```bash
 conda install -c conda-forge pyspark
 ```
-```bash
-conda install -c conda-forge geopandas
-```
+
 > Estrutura de Projeto
 - tabelas_database.sql (Script T-SQL Tabelas, Procedures e View "SQL Server")
 - main.py (Start)
@@ -48,5 +52,9 @@ conda install -c conda-forge geopandas
 - database.py (Engine, Schema e Criação das tabelas stages)
 - log.py (Execução de registros do processo de carga)
 - list_procedures.py (Arquivo com lista de sequência de procedures a executar)
+
+Obs.: Projeto em andamento, principais etapas de ETl construidas e algumas analises preliminares, iniciando etapas de relatórios com criação de KPI e estudos de possíveis agregação de dados relativos para complementação da analise.
+
+Obs2.: Após conclusão do dashboard, será criado aplicação com PyQT5 que será o programada para carga dos dados.
 
 

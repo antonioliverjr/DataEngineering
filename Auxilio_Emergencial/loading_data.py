@@ -2,9 +2,9 @@ import os
 import pandas as pd
 import time
 from sqlalchemy.sql import text
-from database import conexao, store_procedure, engine
+from database import conexao, engine
 from database import TB_BENEFICIOS, TB_REGISTRADOS, TB_ANONIMOS, TB_MUNICIPIOS, TB_DATA
-from list_procedures import list_procedures_flow
+from list_procedures import list_procedures_flow, store_procedure
 from log import register_log
 
 def verifica_dt_set(ano:str, mes:str) -> bool:
@@ -12,7 +12,7 @@ def verifica_dt_set(ano:str, mes:str) -> bool:
     with conexao() as conn:
         result = conn.execute(sql_sel_dt, {'year': ano,'month': mes}).fetchone()
 
-    if result > 0:
+    if result[0] > 0:
         return True
     return False
 
@@ -80,7 +80,7 @@ def flow_final():
         
         if 'TB_' in tabela: register_log(tabela,'end')
         print(f'{procedure} executada com sucesso!')
-        time.sleep(3)
+        time.sleep(5)
 
 if __name__ == '__main__':
     caminho = os.path.dirname(os.path.realpath(__file__))

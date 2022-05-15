@@ -1,3 +1,7 @@
+import pyodbc
+from typing import Union
+
+
 list_procedures_flow = {
     '1': 'PRC_CARGA_TB_DIM_DATA'
     ,'2': 'PRC_CARGA_TB_AUXEMERGENCIAL_MUNICIPIOS'
@@ -7,3 +11,25 @@ list_procedures_flow = {
     ,'6': 'PRC_INSERT_BASE_MUNICIPIOS'
     ,'7': 'PRC_LIMPA_STG_AUXEMERGENCIAL'
 }
+
+def store_procedure(procedure:str) -> Union[bool,Exception]:
+    context = pyodbc.connect(
+        'DRIVER={ODBC Driver 17 for SQL Server};SERVER=localhost\\SQLEXPRESS;DATABASE=GOVBR;UID=project;PWD=Jrdbsql'
+        ,autocommit=True
+    )
+
+    comando_sql = '{CALL '+procedure+'}'
+    cursor = context.cursor()
+
+    try:
+        cursor.execute(comando_sql)
+    except Exception as err:
+        return err
+    finally:
+        cursor.close()
+        context.close()
+
+    return True
+
+if __name__ == '__main__':
+    store_procedure('PRC_CARGA_TB_DIM_DATA')
