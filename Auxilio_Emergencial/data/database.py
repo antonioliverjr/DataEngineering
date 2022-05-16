@@ -1,4 +1,4 @@
-import os
+from decouple import config
 from sqlalchemy import create_engine, Table, Column, String, Integer, Float, MetaData, DateTime
 
 TB_BENEFICIOS = 'TB_STG_AUXEMERGENCIAL_BENEFICIOS'
@@ -9,11 +9,17 @@ TB_PATH = 'TB_AUX_CAMINHO_CSV'
 TB_DATA = 'TB_DIM_DATA'
 LOG = 'TB_LOG'
 
+user = config("USER")
+senha = config("SENHA")
+host = config("HOST")
+
+string_conexao = "mssql+pyodbc://"+user+":"+senha+"@"+host+"\\SQLEXPRESS/GOVBR?driver=ODBC+Driver+17+for+SQL+Server"
+
 global dataserver
 dataserver = MetaData()
 
 global engine
-engine = create_engine("mssql+pyodbc://project:Jrdbsql@localhost\\SQLEXPRESS/GOVBR?driver=ODBC+Driver+17+for+SQL+Server") 
+engine = create_engine(string_conexao) 
 
 def database_conn():
     stage_beneficios = Table(

@@ -4,8 +4,8 @@ import shutil
 import requests
 from zipfile import ZipFile
 from sqlalchemy.sql import text
-from database import conexao, TB_PATH
-from log import DATA_HORA_ATUAL
+from data.database import conexao, TB_PATH
+from utils.log import DATA_HORA_ATUAL
 
 
 def register_path(nome_file:str, caminho_arquivo:str):

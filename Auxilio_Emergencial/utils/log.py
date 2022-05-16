@@ -1,6 +1,6 @@
 from datetime import datetime
 from sqlalchemy.sql import text 
-from database import conexao, LOG
+from data.database import conexao, LOG
 
 DATA_HORA_ATUAL = datetime.now()
 DATA_ATUAL = str(datetime.date(datetime.now()))

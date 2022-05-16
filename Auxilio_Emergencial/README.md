@@ -17,6 +17,7 @@
 - Pandas
 - Pyodbc
 - SQLAlchemy
+- python-decouple
 
 Obs.: Caso queira utilizar interpretador python.org instalar Pandas e SQLAlchemy
 
@@ -41,6 +42,7 @@ conda install -c conda-forge pyspark
 - database.py (Engine, Schema e Criação das tabelas stages)
 - list_procedures.py (Arquivo com lista de sequência de procedures e executor)
 - log.py (Execução de registros do processo de carga)
+- .env (Arquivo para armazenamento dados sensíveis)
 
 
 Obs.: Projeto em andamento, principais etapas de ETl construidas e algumas analises preliminares, iniciando etapas de relatórios com criação de KPI e estudos de possíveis agregação de dados relativos para complementação da analise.

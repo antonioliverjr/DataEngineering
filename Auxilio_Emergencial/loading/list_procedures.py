@@ -1,5 +1,6 @@
 import pyodbc
 from typing import Union
+from data.database import user, senha, host
 
 
 list_procedures_flow = {
@@ -14,7 +15,7 @@ list_procedures_flow = {
 
 def store_procedure(procedure:str) -> Union[bool,Exception]:
     context = pyodbc.connect(
-        'DRIVER={ODBC Driver 17 for SQL Server};SERVER=localhost\\SQLEXPRESS;DATABASE=GOVBR;UID=project;PWD=Jrdbsql'
+        'DRIVER={ODBC Driver 17 for SQL Server};SERVER='+host+'\\SQLEXPRESS;DATABASE=GOVBR;UID='+user+';PWD='+senha
         ,autocommit=True
     )
 

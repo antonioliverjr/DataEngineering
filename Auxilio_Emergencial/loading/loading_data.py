@@ -2,10 +2,10 @@ import os
 import pandas as pd
 import time
 from sqlalchemy.sql import text
-from database import conexao, engine
-from database import TB_BENEFICIOS, TB_REGISTRADOS, TB_ANONIMOS, TB_MUNICIPIOS, TB_DATA
-from list_procedures import list_procedures_flow, store_procedure
-from log import register_log
+from data.database import conexao, engine
+from data.database import TB_BENEFICIOS, TB_REGISTRADOS, TB_ANONIMOS, TB_MUNICIPIOS, TB_DATA
+from loading.list_procedures import list_procedures_flow, store_procedure
+from utils.log import register_log
 
 def verifica_dt_set(ano:str, mes:str) -> bool:
     sql_sel_dt = text("SELECT COUNT(*) AS DADOS FROM "+ TB_DATA +" WHERE NM_ANO = :year AND NM_MES = :month")

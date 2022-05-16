@@ -2,7 +2,7 @@ import os
 import shutil
 import requests
 from zipfile import ZipFile
-from dados_geometricos import get_municipios_csv
+from extract.dados_geometricos import get_municipios_csv
 
 
 def extract_csv(ano_mes:str, path_download:str, path_historico:str, path_files:str) -> str:

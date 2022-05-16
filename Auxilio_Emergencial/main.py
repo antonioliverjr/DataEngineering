@@ -1,10 +1,9 @@
 import os
-import time
 import shutil
-from database import database_conn
-from extract_zip import extract_csv
-from transform_spark import tratamento_csv
-from loading_data import verifica_dt_set ,loading_csv, flow_final
+from data.database import database_conn
+from extract.extract_zip import extract_csv
+from transform.transform_spark import tratamento_csv
+from loading.loading_data import verifica_dt_set ,loading_csv, flow_final
 
 global dataset_temp
 dataset_temp = {
