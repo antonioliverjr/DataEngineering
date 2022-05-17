@@ -30,8 +30,15 @@ def tratamento_csv(path_file :str, destino:str):
             .withColumn('VALOR', regexp_replace('VALOR', ',', '.'))\
             .withColumn('VALOR', col('VALOR').cast('float'))
 
-    df_final = df2.filter("COD_MUNICIPIO IS NOT NULL")\
-                .groupBy(['ANO_MES','COD_MUNICIPIO','ENQUADRAMENTO','PARCELA'])\
+    df2 = df2.na.fill(
+        {
+            "UF":"OT"
+            ,"COD_MUNICIPIO":9999999
+            ,"NOME_MUNICIPIO":"OUTROS"
+        }
+    )
+
+    df_final = df2.groupBy(['ANO_MES','COD_MUNICIPIO','ENQUADRAMENTO','PARCELA'])\
                 .sum('VALOR').withColumnRenamed('sum(VALOR)', 'TOTAL_PAGO')\
                 .orderBy(['COD_MUNICIPIO','ENQUADRAMENTO','PARCELA'])
 
@@ -44,22 +51,21 @@ def tratamento_csv(path_file :str, destino:str):
     file_csv = os.path.join(path_destino,'AuxilioEmergencial.csv')
     df_final.toPandas().to_csv(file_csv, index=False)
 
-    municipios = df2.select('COD_MUNICIPIO', 'NOME_MUNICIPIO', 'UF')\
-                            .distinct().filter("COD_MUNICIPIO IS NOT NULL")
+    municipios = df2.select('COD_MUNICIPIO', 'NOME_MUNICIPIO', 'UF').distinct()
 
     csv_municipio = path_destino+'\\'+'municipios.csv'
     municipios.toPandas().to_csv(csv_municipio, index=False)
 
-    total_beneficiados = df2.filter("COD_MUNICIPIO IS NOT NULL AND CPF_BENEF IS NOT NULL")\
+    total_beneficiados = df2.filter("CPF_BENEF IS NOT NULL")\
                             .groupBy(['ANO_MES','COD_MUNICIPIO'])\
                             .agg(count('COD_MUNICIPIO').alias('TOTAL_BENEF'))
 
     csv_beneficiados = path_destino+'\\'+'beneficiados_registrados.csv'
     total_beneficiados.toPandas().to_csv(csv_beneficiados, index=False)
 
-    total_anonimos = df2.filter("COD_MUNICIPIO IS NOT NULL AND CPF_BENEF IS NULL")\
-                            .groupBy(['ANO_MES','COD_MUNICIPIO'])\
-                            .agg(count('COD_MUNICIPIO').alias('TOTAL_ANONIMOS'))
+    total_anonimos = df2.filter("CPF_BENEF IS NULL")\
+                        .groupBy(['ANO_MES','COD_MUNICIPIO'])\
+                        .agg(count('COD_MUNICIPIO').alias('TOTAL_ANONIMOS'))
 
     csv_anonimos = path_destino+'\\'+'beneficiados_anonimos.csv'
     total_anonimos.toPandas().to_csv(csv_anonimos, index=False)
