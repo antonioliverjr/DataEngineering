@@ -8,7 +8,7 @@ INI = 'PROCESSANDO'
 END = 'FINALIZADO'
 ERR = 'ERROR'
 
-def register_log(tabela:str, status:str):
+def register_log(tabela:str, status:str) -> bool:
     data_upt = datetime.now()
     sql_sel_open = text("SELECT COUNT(*) FROM "+LOG+" WHERE TABELA_JOB = :tab AND CAST(DT_INICIO AS DATE) = :dt AND DT_FIM IS NULL")
     sql_insert = text("INSERT INTO "+LOG+" (TABELA_JOB,DT_INICIO,STATUS) VALUES (:tab, :dt, :sts)")

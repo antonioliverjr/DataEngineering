@@ -8,7 +8,7 @@ from data.database import conexao, TB_PATH
 from utils.log import DATA_HORA_ATUAL
 
 
-def register_path(nome_file:str, caminho_arquivo:str):
+def register_path(nome_file:str, caminho_arquivo:str) -> bool:
     sql_sel_exist = text("SELECT COUNT(*) FROM "+TB_PATH+" WHERE NM_ARQUIVO_CSV = :file AND NM_CAMINHO_CSV = :path")
     sql_insert = text("INSERT INTO "+TB_PATH+" (NM_ARQUIVO_CSV,NM_CAMINHO_CSV,DT_ATUALIZACAO) VALUES (:file, :path, :dt)")
     
@@ -20,8 +20,10 @@ def register_path(nome_file:str, caminho_arquivo:str):
     if reg == 0:
         with conexao() as conn:
             conn.execute(sql_insert, {'file':nome_file, 'path':caminho_arquivo, 'dt':DATA_HORA_ATUAL})
+            return True
+    return False
 
-def get_municipios_csv(path_download:str, path_destino:str) -> str:
+def get_municipios_csv(path_download:str, path_destino:str):
     path_mun_csv = os.path.join(path_destino, 'base_municipios')
     zip_file = 'main.zip'
     file_name = 'municipios.csv'
@@ -64,7 +66,7 @@ def get_municipios_csv(path_download:str, path_destino:str) -> str:
 
     if os.path.exists(caminho_arq_final1):
         register_path(file_name,str(caminho_arq_final1))
-        time.sleep(10)
+        time.sleep(5)
     
     if os.path.exists(caminho_arq_final2):
         register_path(file_name2,str(caminho_arq_final2))

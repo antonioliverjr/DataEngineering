@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import time
+from typing import Union
 from sqlalchemy.sql import text
 from data.database import conexao, engine
 from data.database import TB_BENEFICIOS, TB_REGISTRADOS, TB_ANONIMOS, TB_MUNICIPIOS, TB_DATA
@@ -63,7 +64,7 @@ def loading_csv(path_files:str) -> bool:
         return False
 
 
-def flow_final():
+def flow_final() -> Union[bool, Exception]:
     for seq in list_procedures_flow:
         procedure = list_procedures_flow[seq]
         tabela = procedure.replace('PRC_CARGA_', '')
@@ -81,6 +82,7 @@ def flow_final():
         if 'TB_' in tabela: register_log(tabela,'end')
         print(f'{procedure} executada com sucesso!')
         time.sleep(5)
+    return True
 
 if __name__ == '__main__':
     caminho = os.path.dirname(os.path.realpath(__file__))

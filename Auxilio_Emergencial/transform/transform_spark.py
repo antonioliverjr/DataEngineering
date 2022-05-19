@@ -2,7 +2,7 @@ import os
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import regexp_replace, col, count
 
-def tratamento_csv(path_file :str, destino:str):
+def tratamento_csv(path_file :str, destino:str) -> bool:
     spark = SparkSession.builder.getOrCreate()
 
     if not os.path.exists(path_file): return False
