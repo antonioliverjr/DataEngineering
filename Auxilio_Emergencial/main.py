@@ -1,4 +1,5 @@
 import os
+import time
 import shutil
 from data.database import database_conn
 from extract.extract_zip import extract_csv
@@ -75,9 +76,9 @@ def main():
                 continue
             print(f"Iniciando carga de {ano_ini}{mes}...")
             inicio_job(f'{ano_ini}{mes}')
-            contagem += 1
-            #time.sleep(300)
-            break
+            #contagem += 1
+            time.sleep(300)
+            #break
         if contagem == 1: break
         ano_ini = str(int(ano_ini)+1)
 
